@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Register User</title>
+  <link rel="stylesheet" type="text/css"
+        th:href="@{/css/login-registerCSS.css}">
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+  <div class="label-register">
+    <h2>REGISTER</h2>
+  </div>
+  <P id = "error"></P>
+  <form th:action="@{/register}"
+        method="post" onsubmit="return validateRegister()" name="frm-register">
+    <table id="tbl-register" th:object="${memberRegister}">
+      <tr>
+        <td>Email <span>*</span></td>
+        <td>
+          <input type="email" name="email" id="email"
+                 placeholder="Enter email"/>
+        </td>
+      </tr>
+      <tr>
+        <td>User name <span>*</span></td>
+        <td>
+          <input type="text" name="username" id="username"
+                 placeholder="Enter username" />
+        </td>
+      </tr>
+      <tr>
+        <td>Password <span>*</span></td>
+        <td>
+          <input type="password" name="password" id="password"
+                 placeholder="Enter password"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Confirm Password <span>*</span></td>
+        <td>
+          <input type="password" name="confirmPassword" id="confirmPassword"
+                 placeholder="Enter password again"/>
+        </td>
+      </tr>
+    </table>
+    <button type="submit" onclick="validateRegister()" name="register">
+      Register
+    </button>
+  </form>
+</div>
+<hr/>
+</div>
+<script
+        th:src="@{/js/rehister.js}"></script>
+</body>
+</html>

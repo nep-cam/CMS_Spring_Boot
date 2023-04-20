@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          th:href="@{/css/edit-profileCSS.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <h1>Edit Profile</h1>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <em class="fa fa-home"></em>
+        CMS</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" style="color: yellow" href="#">
+                <em class="fa fa-user-circle-o" th:text="${member.username}"></em>
+            </a>
+
+            <a class=" nav-link" th:href="@{/logout}">
+                <em class="fa fa-user-times"></em>
+                Logout
+            </a>
+        </li>
+
+    </ul>
+    </div>
+</nav>
+
+<!-- Nội dung -->
+<div class="row">
+    <div class="side">
+        <ul>
+            <li id="view-contents"><a th:href="@{/list}">View contents</a></li>
+            <li id="form-contents"><a th:href="@{/add}">Form contents</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <h2 class="main__header">Edit profile</h2>
+        <form th:action="@{/edit-profile}"
+              method="post" name="frm-member" th:field="${member}">
+            <label for="firstName">
+                First Name
+            </label>
+            <input type="text" name="firstName" id="firstName"
+                   placeholder="Enter first name" />
+            <label for="lastName">
+                Last Name
+            </label>
+            <input type="text" name="lastName" id="lastName"
+                   placeholder="Enter last name" />
+            <label for="username">
+                User Name
+            </label>
+            <input type="text" name="username" id="username"
+                   placeholder="Enter user name" th:field="${member.username}"/>
+            <label for="username">
+                Email
+            </label>
+            <input type="email" name="email" id="email"
+                   placeholder="Enter email" th:field="${member.email}"/>
+            <label for="phone">
+                Phone
+            </label>
+            <input type="text" name="phone" id="phone"
+                   placeholder="Enter phone" />
+            <label for="description">
+                Description
+            </label>
+            <textarea id="description" name="description" rows="4" cols="50" >
+        </textarea>
+            <button type="submit" name="update">
+                Update
+            </button>
+            <button type="submit" name="reset">
+                Reset
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

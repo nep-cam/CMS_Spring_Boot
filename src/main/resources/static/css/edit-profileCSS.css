@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial;
+    /*padding: 10px;*/
+    background: #e9d8f4;
+    margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+    padding: 10px;
+    text-align: center;
+    background: white;
+    color: #58257b;
+}
+.header h1 {
+    font-size: 40px;
+}
+
+.header p {
+    font-size: 20px;
+}
+
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Tạo hai cột không bằng nhau nằm cạnh nhau */
+/* Sidebar/Cột trái */
+.side {
+    flex: 20%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+li {
+    padding: 8px;
+}
+li:hover{
+    background-color: ghostwhite;
+    border-radius: 4px;
+}
+
+/* Cột chính */
+.main {
+    flex: 80%;
+    background-color: white;
+    padding: 20px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#description {
+    box-sizing: border-box;
+    height: 150px;
+    text-align: left;
+
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+/* Bố cục linh hoạt: các cột xếp chồng lên nhau thay vì cạnh nhau khi màn hình
+có chiều rộng dưới 600px */
+@media screen and (max-width: 1024px) {
+    .side {
+        flex: 30%;
+        background-color: #f1f1f1;
+        padding: 20px;
+    }
+
+    /* Cột chính */
+    .main {
+        flex: 70%;
+        background-color: white;
+        padding: 20px;
+    }
+}
+/*}*/
+
+@media screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}
